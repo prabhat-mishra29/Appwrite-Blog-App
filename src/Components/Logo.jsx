@@ -1,4 +1,4 @@
-import blog from  "../../public/blog-logo.png"
+import blog from  "./blog-logo.png"
 
 function Logo({width}) {
     return ( 
