@@ -1,0 +1,114 @@
+> We use 'Appwrite' which can provide backend services.
+> 'Appwrite' provides an open source platform.
+> Appwrite is an end-to-end backend server for Web, Mobile, Native, or Backend apps packaged as a set of Docker microservices.
+> Appwrite abstracts the complexity and repetitiveness required to build a modern backend API from scratch and allows you to build secure apps faster.
+
+> Environment and Appwrite:--
+    1.Install all dependecies for mega project :- @reduxjs/toolkit , react-router-dom , appwrite , @tinymce/tinymce-react , html-react-parser , react-hook-form .
+
+    > Learn Everything in 'chatGpt'.
+
+    > 'TinyMCE' is a popular WYSIWYG (What You See Is What You Get) editor for web applications, allowing users to easily create and edit content with a rich set of formatting options. It provides a user-friendly interface for text editing, similar to a word processor.
+
+    > 'tinymce-react' is not a standalone library or tool but rather a specific integration of TinyMCE with React, a JavaScript library for building user interfaces. TinyMCE can be integrated into React applications using the tinymce-react package, which is a React component designed to work seamlessly with TinyMCE.
+
+    > 'html-react-parser' is a JavaScript library that allows you to parse and convert HTML strings into React elements. It's particularly useful when you have HTML content that you want to render within a React application.
+
+    > 'react-hook-form' is a library for managing forms in React applications using hooks. It provides a set of hooks and functions that make it easier to handle form state, validation, and submission in a React component. The library is built with performance and developer experience in mind.
+
+    > Environment variables :- 
+        -In React, environment variables are used to manage configuration settings that may vary between different environments (such as development, testing, and production).
+        
+        -React leverages the Create React App (CRA) build tool, which provides an easy way to manage environment variables.
+
+        -Here's how you can work with environment variables in React:
+            1.REACT_APP Prefix / VITE Pefix:
+                + All environment variables in a React app created with Create React App must start with the REACT_APP_ prefix. This naming convention helps CRA identify and include the variables during the build process.
+
+                + But all environment variables in a React app created with vite must start with the 'VITE_' prefix.
+
+            2.Creating Environment Files:
+                Create environment files in the root of your React project:
+                .env (common settings, loaded in all environments)
+                .env.development, .env.test, .env.production (environment-specific settings)
+                Example .env file:
+                    REACT_APP_API_URL=https://api.example.com
+                    REACT_APP_DEBUG_MODE=true
+
+                    VITE_API_URL=https://api.example.com
+                    VITE_DEBUG_MODE=true
+
+        Steps:-
+            -Create environment file in project root with name ".env".
+            -How to create environment variables:- check out in upper paragraph.
+            -How to access environment variable:-
+                environment variable ka access backend main alag liya jata hai,forntend main alag liya jata hai,create react app main alag liya jata hai,vite main alag liya jata..etc.
+
+                Accessing Environment Variables:-
+                    In your JavaScript or JSX files, you can access environment variables using 'process.env.' object + file name.[This is for 'create react app']
+
+                    But incase of VITE we use 'import.meta.env.' object + file name.
+
+            -When we change or delete values in environment variable,maximum time we simply restart the terminal.
+
+            -Create a project in 'appwrite'.
+            -Paste API endpoint , project id from setting option of "chaiblog" project and put it into '.env' file.
+            -Check out video number 18.
+            -create database then create collections then go to attributes then create attributes which provides a structure [taki uske andar sirf values dee sakee].then create an index in indexes section.then go to storage and create bucket.
+            -Rather than using 'import.meta.env.' again and again for accessing environment variable from '.env' we simply make a "config.js" file and put all variables into it and use it according or usuage.
+            -but why ?
+                ->In production site when we are calling 'import.meta.env.' again and again , sometimes it may crash the application.
+                ->environment variable must be a 'String'.If any change occurs it will show us an error.
+                ->So we make a key and value pair in 'config.js' file.
+
+
+> Build authentication service with appwrite:-
+    Service:- Noting but a class.
+        [hmm services se kuch method export karte,unn methods kee andar kya ho raha hai ye kisiko nahi pata.]
+
+    -> Our work is to build a blog website.jisme images upload hoo raha hai aur database main kuch collections of values jaraha hai.. 
+
+    -> Go to the 'appwrite' docs and read about 'authentication' in appwrite.
+        You can get up and running with Appwrite Authentication in minutes. Adding signup and login is as simple as this.
+    -> Create a 'auth' file which includes "authentication" sevices.
+
+> Build database service and storage service with appwrite:-
+    -> Create a 'database_storage' file which includes "database" services and "storage" services.
+
+> Now we are moving to 'state management' part[redux-toolkit].
+    -> create a 'store' file,then create "authSlice" reducers.
+
+                Assignment:---
+                    => Create "postSlice" reducers.
+
+    -> Goto "App.jsx".
+
+
+> 1. Conditional rendering.
+
+> 2. Component based design.[Build all react components]
+        -The 'useNavigate' hook is used for programmatic navigation in React applications using React Router.
+        - It Acts same as "to" attribute in <Link> or <NavLink>.
+        - It needs a URL.
+
+        - Learn 'forward-ref' in 'input.js' and google.
+        -'input.js' gives you a input field that can be used in different places according to our use.
+
+> 3. React hook form in production.
+    -> select-button component,postcard component.
+    -> Using 'react hook form' :- Login component,Signup component .
+    -> 'AuthLayout' component is a layout or mechanisim for protecting pages or routes.[Protected container]
+        -It chooses where to go , while clicking logout button it will move you to login page or normally it will move to home page.
+
+> 4. Adding form and slug values:-
+    -> RTE[Real Time Editor]
+    -> RTE component , PostForm component
+
+> 5. Building pages:--
+    -> sign-up page,log-in page,add-post page,all-post page,Home page,Post page,Edit-post page.
+    -> Provide react-router in 'main.jsx' faile.
+
+
+# When ever you want watch this mega project always prefers output website side-by-side to get actual meaning of every component.
+
+# Deployment of webiste to production:-watch video number 28 of chai aur react.
