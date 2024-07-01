@@ -22,11 +22,16 @@ function Signup() {
         try {
             //account create ksro
             const userData = await authServices.createAccount(data)
+
+            console.log(userData);
+
             if (userData) {
                 //userData 'getCurrentUser' se hi niklega
                 //current user lelo.
                 const userData = await authServices.getCurrentUser(userData)
 
+                console.log(userData);
+                
                 //store update kardo
                 if(userData) dispatch(login(userData));
 
