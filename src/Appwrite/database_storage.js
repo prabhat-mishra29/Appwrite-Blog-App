@@ -208,7 +208,7 @@ export class dataServices{
     */
 
     // Here we use 'slug' as our unique documnet id.
-    async createPost({title,slug,content,featuredImage,status,userId}){
+    async createPost({title,slug,content,featuredImage,status,userId,userName}){
         try{
             return await this.databases.createDocument(
                 config.appWrite_databaseId,//Database Id
@@ -220,7 +220,8 @@ export class dataServices{
                     content,
                     featuredImage,
                     status,
-                    userId
+                    userId,
+                    userName
                 }
             );
         }
@@ -246,7 +247,7 @@ export class dataServices{
             );
         }
         catch(error){
-            throw error;
+            console.log("Update post error",error);
         }
     }
 
@@ -277,7 +278,7 @@ export class dataServices{
             );
         }
         catch(error){
-            console.log("Appwrite service :: deletePost :: error",error);
+            console.log("Appwrite service :: getPost :: error",error);
             return false;
         }
     }
@@ -298,7 +299,7 @@ export class dataServices{
             );
         }
         catch(error){
-            throw error;
+            console.log("get posts error",error);
         }
     }
 
@@ -313,7 +314,7 @@ export class dataServices{
             );
         }
         catch(error){
-            console.log("Appwrite service :: uploadPost :: error",error);
+            console.log("Appwrite service :: uploadimage :: error",error);
             return false;
         }
     }
@@ -329,7 +330,20 @@ export class dataServices{
             return true;
         }
         catch(error){
-            throw error;
+            console.log("Appwrite service :: deleteimage :: error",error);
+        }
+    }
+
+    async updateFile(fileId){
+        try{
+            await this.bucket.updateFile(
+                config.appWrite_bucketId,//Bucket Id
+                fileId//File Id
+            );
+            return true;
+        }
+        catch(error){
+            console.log("Appwrite service :: deleteimage :: error",error);
         }
     }
 

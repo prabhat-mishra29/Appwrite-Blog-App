@@ -4,6 +4,7 @@ import data from "../Appwrite/database_storage";
 
 function AllPosts() {
     const [posts, setPosts] = useState([])
+
     useEffect(() => {
         data.getPosts().then((posts) => {
             if (posts) {
@@ -11,6 +12,8 @@ function AllPosts() {
             }
         })
     }, [])
+
+    // console.log(posts)
   return (
     <div className='w-full py-8'>
         <Container>

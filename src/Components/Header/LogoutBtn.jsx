@@ -12,7 +12,8 @@ function LogoutBtn() {
     const navigate = useNavigate();
 
     const dispatch = useDispatch()
-    const logoutHandler = () => {
+    const logoutHandler = (e) => {
+      e.preventDefault();
         authServices.logOut().then( () => {
             dispatch(logout())
             // Store main information update rahe,issiliye hmm dispatch karte hain.
@@ -24,7 +25,7 @@ function LogoutBtn() {
   return (
     <button
       className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
-      onClick={logoutHandler}
+      onClick={(e)=>logoutHandler(e)}
     >Logout</button>
   )
 }

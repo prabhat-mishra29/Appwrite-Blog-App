@@ -4,7 +4,7 @@ import data from "../Appwrite/database_storage"
 import { useNavigate,  useParams } from 'react-router-dom';
 
 function EditPost() {
-    const [post, setPosts] = useState(null)
+    const [post, setPost] = useState(null)
     const {slug} = useParams() //coming from URL
     const navigate = useNavigate()
 
@@ -12,13 +12,14 @@ function EditPost() {
         if (slug) {
             data.getPost(slug).then((post) => {
                 if (post) {
-                    setPosts(post)
+                    setPost(post)
                 }
             })
         } else {
             navigate('/')
         }
     }, [slug, navigate])
+
   return post ? (
     <div className='py-8'>
         <Container>

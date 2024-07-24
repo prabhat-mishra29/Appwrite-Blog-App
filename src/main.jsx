@@ -21,7 +21,11 @@ import AllPosts from "./pages/AllPosts";
         children: [
             {
                 path: "",
-                element: <Home />,
+                element: (
+                    <AuthLayout authentication>
+                        <Home/>
+                    </AuthLayout>
+                ),
             },
             {
                 path: "login",

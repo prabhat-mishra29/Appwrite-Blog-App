@@ -10,7 +10,6 @@ export default function Protected({children, authentication = true}) {
     //Here 'children' is "children component".
 
     const navigate = useNavigate()
-    const [loader, setLoader] = useState(true)
 
     //Ask,user is login or not from store.
     const authStatus = useSelector(state => state.auth.status)
@@ -43,9 +42,7 @@ export default function Protected({children, authentication = true}) {
             
             //let authValue = authStatus === true ? true : false
 
-
-        setLoader(false)
     }, [authStatus, navigate, authentication])
 
-  return loader ? <h1>Loading...</h1> : <>{children}</>
+  return (<>{children}</>);
 }

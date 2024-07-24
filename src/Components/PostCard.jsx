@@ -4,7 +4,7 @@ import React from 'react'
 import data from "../Appwrite/database_storage"
 import {Link} from 'react-router-dom'
 
-function PostCard({$id, title, featuredImage}) {
+function PostCard({$id, title, featuredImage,userName}) {
     // Appwrite takes '$id' as a prop.so we use this type of convention.
     
   return (
@@ -19,6 +19,7 @@ function PostCard({$id, title, featuredImage}) {
             <h2
             className='text-xl font-bold'
             >{title}</h2>
+            <h3 className='text-xs font-semibold text-gray-500'>Created by : {userName}</h3>
         </div>
     </Link>
   )

@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.loading{
+    min-height:100vh;
+    display: grid;
+  }
+  
+.loading .spinner{
+    width:100px;
+    height:100px;
+    place-self:center;
+    border:5px solid transparent;
+    border-top-color:white;
+    border-radius:50%;
+    animation:rotate 1s infinite;
+  }
+  
+  @keyframes rotate {
+    100%{
+        transform:rotate(360deg);
+    }
+  }

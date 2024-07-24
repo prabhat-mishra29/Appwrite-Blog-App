@@ -9,13 +9,16 @@ import { useSelector } from "react-redux";
 
 export default function Post() {
     const [post, setPost] = useState(null);
-    const { slug } = useParams();
+    const { slug } = useParams(); //database-Id
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
 
     //Checks both post and userData is present or not?
+    //It helps us to find a way , user can delete it's own post not others.
     const isAuthor = post && userData ? post.userId === userData.$id : false;
+
+    //console.log("POST :- ",post)
 
     //When component mounts , it checks whether slug is present or not?
     useEffect(() => {

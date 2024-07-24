@@ -31,6 +31,9 @@ export default function PostForm({ post }) {
     //submit hua hee agar,data pass toh hua hii hoga.
     const submit = async (Data) => {
 
+        console.log("DATA : ",Data);
+        console.log("user-data : ",userData);
+
         //Agar post hai toh
         if (post) {
         //              agar image hai         toh upload karo                  nahi hai toh null hoga
@@ -59,9 +62,11 @@ export default function PostForm({ post }) {
             if (file) {
                 const fileId = file.$id;
                 Data.featuredImage = fileId;
-                const dbPost = await data.createPost({ ...Data, userId: userData.$id });
+                const dbPost = await data.createPost({ ...Data, userId: userData.$id , userName:userData.name});
 
                 if (dbPost) {
+                    console.log("A new post : ",dbPost);
+            
                     //Navigate to bigger image where you can edit and delete a post
                     navigate(`/post/${dbPost.$id}`);
                 }
@@ -94,6 +99,7 @@ export default function PostForm({ post }) {
 
     return (
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+
             <div className="w-2/3 px-2">
                 <Input
                     label="Title :"
@@ -107,6 +113,8 @@ export default function PostForm({ post }) {
                     placeholder="Slug"
                     className="mb-4"
                     {...register("slug", { required: true })}
+
+                    //If we write anything direct in 'sulg' , it will used to tranfer that input into a valid slug.
                     onInput={(e) => {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
@@ -115,6 +123,7 @@ export default function PostForm({ post }) {
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
 
             </div>
+
             <div className="w-1/3 px-2">
                 <Input
                     label="Featured Image :"

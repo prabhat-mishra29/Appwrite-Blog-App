@@ -53,8 +53,7 @@
                 if(loading){
                     //Loading icon
                     return(
-                        <>
-                        </>
+                        <div className="loading bg-gray-400"><div className="spinner"></div></div>
                     );
                 }
                 else{
