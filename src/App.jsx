@@ -6,7 +6,9 @@
     import { login,logout } from "./store/authSlice";
     import { Header,Footer } from "./Components";
     import {Outlet} from 'react-router-dom'
-    
+    import { ToastContainer} from 'react-toastify';
+    import 'react-toastify/dist/ReactToastify.css';
+
         function App(){
 
         /*
@@ -60,6 +62,8 @@
                     return(
                         <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
                             <div className='w-full block'>
+                                <ToastContainer/>
+
                                 <Header></Header>
                                     {/* Jabb v kuch alag show karna hai toh 'main' se wrapp karlo */}
                                     <main>

@@ -6,6 +6,7 @@ import data from "../Appwrite/database_storage";
 import { Button, Container } from "../Components/index";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 export default function Post() {
     const [post, setPost] = useState(null);
@@ -36,7 +37,11 @@ export default function Post() {
         data.deletePost(post.$id).then((status) => {
             if (status) {
                 data.deleteFile(post.featuredImage);
+                toast.success("Post is deleted!")
                 navigate("/");
+            }
+            else{
+                toast.error("Error while deleting the post!")
             }
         });
     };

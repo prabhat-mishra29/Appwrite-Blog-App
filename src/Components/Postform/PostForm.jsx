@@ -6,6 +6,7 @@ import { Button, Input, RTE, Select } from "../index";
 import data from "../../Appwrite/database_storage";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 export default function PostForm({ post }) {
 
@@ -52,6 +53,11 @@ export default function PostForm({ post }) {
 
             if (dbPost) {
                 navigate(`/post/${dbPost.$id}`);
+
+                toast.success("Post is updated!")
+            }
+            else{
+                toast.error("Error while updating the post!")
             }
         } 
 
@@ -66,9 +72,14 @@ export default function PostForm({ post }) {
 
                 if (dbPost) {
                     console.log("A new post : ",dbPost);
+
+                    toast.success("A post is created!")
             
                     //Navigate to bigger image where you can edit and delete a post
                     navigate(`/post/${dbPost.$id}`);
+                }
+                else{
+                    toast.error("Error while creaating the post!")
                 }
             }
         }
